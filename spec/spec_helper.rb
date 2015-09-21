@@ -2,6 +2,7 @@ require 'rubygems'
 require 'guard/compat/test/helper'
 require 'guard/delayed'
 require "rspec"
+require 'pathname'
 
 ENV["GUARD_ENV"] = 'test'
 

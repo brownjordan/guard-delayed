@@ -62,8 +62,8 @@ module Guard
     end
 
     def cmd
-      command = "script/delayed_job"
-      command = "#{@options[:root]}/script/delayed_job" if @options[:root]
+      command = "bin/delayed_job"
+      command = "#{@options[:root]}/bin/delayed_job" if @options[:root]
       command = "export RAILS_ENV=#{@options[:environment]}; #{command}" if @options[:environment]
       command
     end

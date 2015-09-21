@@ -5,13 +5,13 @@ describe Guard::Delayed do
     let(:subject) {Guard::Delayed.new({environment: 'test'})}
 
     it "calls system with 'export RAILS_ENV=test;' call first" do
-      expect(subject).to receive(:system).with("export RAILS_ENV=test; script/delayed_job stop").and_return(true)
-      expect(subject).to receive(:system).with("export RAILS_ENV=test; script/delayed_job start").and_return(true)
+      expect(subject).to receive(:system).with("export RAILS_ENV=test; bin/delayed_job stop").and_return(true)
+      expect(subject).to receive(:system).with("export RAILS_ENV=test; bin/delayed_job start").and_return(true)
       subject.start
     end
 
     it "calls system with 'export RAILS_ENV=test;' after changes" do
-      expect(subject).to receive(:system).with("export RAILS_ENV=test; script/delayed_job restart").and_return(true)
+      expect(subject).to receive(:system).with("export RAILS_ENV=test; bin/delayed_job restart").and_return(true)
       subject.run_on_changes([])
     end
 
@@ -30,13 +30,13 @@ describe Guard::Delayed do
     subject { Guard::Delayed.new({:root => 'test/dummy'}) }
 
     it "calls system in correct directory call first" do
-      expect(subject).to receive(:system).with("test/dummy/script/delayed_job stop").and_return(true)
-      expect(subject).to receive(:system).with("test/dummy/script/delayed_job start").and_return(true)
+      expect(subject).to receive(:system).with("test/dummy/bin/delayed_job stop").and_return(true)
+      expect(subject).to receive(:system).with("test/dummy/bin/delayed_job start").and_return(true)
       subject.start
     end
 
     it "calls system in correct directory after changes" do
-      expect(subject).to receive(:system).with("test/dummy/script/delayed_job restart").and_return(true)
+      expect(subject).to receive(:system).with("test/dummy/bin/delayed_job restart").and_return(true)
       subject.run_on_changes([])
     end
 
