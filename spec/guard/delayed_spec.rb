@@ -17,12 +17,12 @@ describe Guard::Delayed do
 
     it "should raise an exception when system call fails" do
       expect(subject).to receive(:system).and_return(nil)
-      expect(-> {subject.run_on_changes([])}).to raise_error
+      expect(-> {subject.run_on_changes([])}).to raise_error StandardError
     end
 
     it "should raise an exception when system command fails " do
       expect(subject).to receive(:system).and_return(false)
-      expect(-> {subject.run_on_changes([]) }).to raise_error
+      expect(-> {subject.run_on_changes([]) }).to raise_error StandardError
     end
   end
 
@@ -42,12 +42,12 @@ describe Guard::Delayed do
 
     it "should raise an exception when system call fails" do
       expect(subject).to receive(:system).and_return(nil)
-      expect(-> {subject.run_on_changes([])}).to raise_error
+      expect(-> {subject.run_on_changes([])}).to raise_error StandardError
     end
 
     it "should raise an exception when system command fails " do
       expect(subject).to receive(:system).and_return(false)
-      expect(-> {subject.run_on_changes([])}).to raise_error
+      expect(-> {subject.run_on_changes([])}).to raise_error StandardError
     end
   end
 end
