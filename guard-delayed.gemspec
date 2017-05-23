@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "guard", "~> 2.1"
   s.add_dependency "guard-compat", "~> 1.1"
-  s.add_dependency 'delayed_job', '~> 4'
   s.add_dependency 'rails', '~> 5'
   
   s.add_development_dependency 'bundler'
